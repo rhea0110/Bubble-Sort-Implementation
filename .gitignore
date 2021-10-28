@@ -1,23 +1,32 @@
-# Compiled class file
-*.class
+package com.company;
 
-# Log file
-*.log
+public class Main {
 
-# BlueJ files
-*.ctxt
+    public static void main(String[] args) {
+        int[] arr = {11, -100, -99, 0, 22, 13, 88};
+        int size = arr.length;
 
-# Mobile Tools for Java (J2ME)
-.mtj.tmp/
+        for (int lastUnsorted = size - 1; lastUnsorted > 0; lastUnsorted--) {
+            for (int i = 0; i < lastUnsorted; i++) {
+                if (arr[i] > arr[i + 1]) {
+                    swap(arr, i, i + 1);
+                }
+            }
+        }
+            for (int i = 0; i < size; i++) {
+                System.out.println(arr[i]);
+            }
+        }
 
-# Package Files #
-*.jar
-*.war
-*.nar
-*.ear
-*.zip
-*.tar.gz
-*.rar
 
-# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
-hs_err_pid*
+    public static void swap(int[] arr, int i, int j) {
+        if (i == j) {
+            return;
+        }
+
+        int temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp;
+    }
+}
+
